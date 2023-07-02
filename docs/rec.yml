@@ -1,0 +1,32 @@
+- a: #合成id
+  option:
+    shapeless: true
+  content:
+    - result:
+        - "test":
+          type: ankhcore-item
+          amount: 1
+          condition: null
+          deny: null
+    - material:
+        - item:
+            - "test" #按照下面的格式来，缩进太麻烦了懒得弄
+
+        - "test":
+          type: ankhcore-item
+          condition: null
+          deny: null
+          amount: $[1,5]
+          take-amount: 3
+          # 实际拿走物品的数量，如果不设置则默认和amount参数同步
+
+        - other:
+            - "permission":
+              content:
+                - abc.abc
+                - abc.abcd
+              random:
+                - choose:
+                  range: *
+                  amount: 1
+                  # 表示从上述的内容中选择 1 条并返回最终结果

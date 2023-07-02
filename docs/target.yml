@@ -1,0 +1,61 @@
+database:
+# 数据库内容，请自行填充
+config-version: 1
+check-update:
+  enable: false
+  notify: false
+gui-utils:
+  auto-identify: true
+  cache-speedup: true
+
+
+# crafttables.yml
+"1":
+  - gui:
+    format: "TrMenu:3"
+    content: "a.yml"
+  - display:
+    item:
+      name: "测试工作台"
+      lore:
+        - "用来测试的工作台"
+        - "&7(右键放置)"
+    particle:
+      random-spread:
+        - "END_ROD":
+          radius: 5
+          amount: 5
+    hologram:
+      order: normal
+      content:
+        - normal:
+            - - "测试文本":
+                offset: "0,0.1,0"
+                update-interval: 20
+                condition: null
+              - "第二行测试文本":
+                offset: "0,0.1,0"
+                update-interval: 20
+                condition: null
+              condition: null
+          condition: null
+        - on-craft:
+            - - "动态文本":
+              offset: "0,0.1,0"
+              update-interval: 20
+              dynamic-text:
+                - "动态文本1"
+                - "动态文本2"
+                condition: null
+                update-interval: 5
+                # 动态文本的刷新间隔
+    block-structure:
+      - "CRAFTING_TABLE":
+        pos: "0,0,0"
+  - actions:
+    on-place:
+      - "tell 你放置了合成台"
+    on-break:
+      - "tell 你破坏了合成台"
+  - requirement:
+      - " check var *'%player_isOp%' is *'true' "
